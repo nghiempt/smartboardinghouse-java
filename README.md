@@ -38,33 +38,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [V
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/nghiempt/sbh-apis.git
-
-# Go into the repository
-$ cd sbh-apis
-
-# Setup env
-$ virtualenv venv
-
-# For Linux/Mac
-
-$ source venv/bin/activate
-
-
-# For Windows
-
-
-$ source venv/Scripts/activate
-
-
-# Install package
-
-$ pip install fastapi sqlalchemy pymysql uvicorn
-
-# Start server
-
-$ uvicorn index:app --reload
-
+$ git clone https://github.com/nghiempt/smartboardinghouse-app.git
 ```
 
 
