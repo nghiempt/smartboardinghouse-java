@@ -7,7 +7,7 @@
   <br>
 </h1>
 
-<h4 align="center"Elevate Your Stay with Seamless Tech, Unmatched Comfort, and a Connected Community.</h4>
+<h4 align="center">Elevate Your Stay with Seamless Tech, Unmatched Comfort, and a Connected Community.</h4>
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
