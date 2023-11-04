@@ -1,4 +1,4 @@
-package com.smartboardinghouse;
+package com.sbh;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.smartboardinghouse", appContext.getPackageName());
+        assertEquals("com.sbh", appContext.getPackageName());
     }
 }

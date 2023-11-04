@@ -1,4 +1,4 @@
-package com.smartboardinghouse;
+package com.sbh;
 
 import org.junit.Test;
 

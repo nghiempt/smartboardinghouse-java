@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.LoginActivity"
+    android:background="#111315"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/textViewLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Smart Boarding House"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.2"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Xin vui lòng điền các thông tin bên dưới để đăng ký"
+        android:textColor="#808080"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/textViewFullnameLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Họ và Tên"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        android:layout_marginTop="40dp" />
+
+    <EditText
+        android:id="@+id/edFullname"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:backgroundTint="#cccccc"
+        android:drawableLeft="@drawable/baseline_person_24_2"
+        android:drawablePadding="12dp"
+        android:hint="Nhập họ và tên của bạn"
+        android:textColorHint="#8A8D99"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFullnameLabel"
+        app:layout_constraintWidth_percent=".8" />
+
+    <TextView
+        android:id="@+id/textViewPhoneLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Số điện thoại"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/edFullname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        android:layout_marginTop="0dp" />
+
+    <EditText
+        android:id="@+id/edPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:backgroundTint="#cccccc"
+        android:drawableLeft="@drawable/baseline_local_phone_24"
+        android:drawablePadding="12dp"
+        android:hint="Nhập số điện thoại của bạn"
+        android:textColorHint="#8A8D99"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPhoneLabel"
+        app:layout_constraintWidth_percent=".8" />
+
+    <TextView
+        android:id="@+id/textViewBirthdayLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ngày sinh"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/edPhoneNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        android:layout_marginTop="0dp" />
+
+    <EditText
+        android:id="@+id/edBirthday"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:backgroundTint="#cccccc"
+        android:drawableLeft="@drawable/baseline_calendar_today_24"
+        android:drawablePadding="12dp"
+        android:hint="dd/mm/yyyy"
+        android:textColorHint="#8A8D99"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBirthdayLabel"
+        app:layout_constraintWidth_percent=".8" />
+
+    <TextView
+        android:id="@+id/textViewPasswordLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mật Khẩu"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/edBirthday"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        android:layout_marginTop="0dp" />
+
+    <EditText
+        android:id="@+id/edPassword"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:backgroundTint="#cccccc"
+        android:textColor="@color/white"
+        android:drawableLeft="@drawable/baseline_password_24"
+        android:drawablePadding="12dp"
+        android:hint="Nhập mật khẩu của bạn"
+        android:textColorHint="#8A8D99"
+        android:textSize="16sp"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPasswordLabel"
+        app:layout_constraintWidth_percent=".8" />
+
+    <TextView
+        android:id="@+id/textViewRetypeLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nhập lại mật khẩu"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/edPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        android:layout_marginTop="0dp" />
+
+    <EditText
+        android:id="@+id/edRetype"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:backgroundTint="#cccccc"
+        android:textColor="@color/white"
+        android:drawableLeft="@drawable/baseline_password_24"
+        android:drawablePadding="12dp"
+        android:hint="Nhập lại mật khẩu"
+        android:textColorHint="#8A8D99"
+        android:textSize="16sp"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRetypeLabel"
+        app:layout_constraintWidth_percent=".8" />
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:onClick="login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#292E32"
+        android:padding="20dp"
+        android:text="Đăng Ký"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/edRetype"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias=".2"
+        app:layout_constraintWidth_percent=".8"
+        android:layout_marginTop="30dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/btnSignUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đã có tài khoản "
+            android:textSize="16sp"
+            android:textColor="#808080"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đăng nhập ngay"
+            android:textSize="16sp"
+            android:textColor="#3D5BF6"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
