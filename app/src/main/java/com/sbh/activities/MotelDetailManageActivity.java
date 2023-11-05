@@ -13,12 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.PopupWindow;
+import android.widget.Toast;
 
 import com.sbh.R;
 import com.sbh.adapter.RoomAdapter;
@@ -142,6 +145,21 @@ public class MotelDetailManageActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void addNewRoom(String roomNumber, String area, String maxPeople) {
+
+    }
+
+    private void checkRoomNumber(String roomNumber) {
+
+    }
+
+    private boolean checkEmpty(String roomNumber, String area, String maxPeople) {
+        if (TextUtils.isEmpty(roomNumber) || TextUtils.isEmpty(area) || TextUtils.isEmpty(maxPeople)) {
+            return false;
+        }
+        return true;
+    }
+
     public void createPopUpWindow() {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View popUpView = inflater.inflate(R.layout.popup_addnew_room, null);
@@ -150,8 +168,24 @@ public class MotelDetailManageActivity extends AppCompatActivity {
         boolean focusable = true;
         PopupWindow popupWindow = new PopupWindow(popUpView, width, heigh, focusable);
 
-//        Button btnAddNewRoomPopup = (Button) findViewById(R.id.btnAddRoom);
+        Button btnAddNewRoomPopup = (Button) popupWindow.getContentView().findViewById(R.id.btnAddRoom);
         Button btnCancelAddRoomPopup = (Button) popupWindow.getContentView().findViewById(R.id.btnCancelAddRoom);
+
+        btnAddNewRoomPopup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText roomNumber = (EditText) popupWindow.getContentView().findViewById(R.id.edtRoomNumber);
+                EditText area = (EditText) popupWindow.getContentView().findViewById(R.id.edtArea);
+                EditText maxPeople = (EditText) popupWindow.getContentView().findViewById(R.id.edtMaxPeople);
+
+                if (checkEmpty(roomNumber.getText().toString().trim(), area.getText().toString().trim(), maxPeople.getText().toString().trim())) {
+                    checkRoomNumber(roomNumber.getText().toString().trim());
+                    addNewRoom(roomNumber.getText().toString().trim(), area.getText().toString().trim(), maxPeople.getText().toString().trim());
+                } else {
+                    Toast.makeText(layoutContainer.getContext(), "All input can not be empty", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         btnCancelAddRoomPopup.setOnClickListener(new View.OnClickListener() {
             @Override

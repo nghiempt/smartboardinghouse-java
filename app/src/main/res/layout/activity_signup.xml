@@ -115,7 +115,7 @@
         android:backgroundTint="#cccccc"
         android:drawableLeft="@drawable/baseline_calendar_today_24"
         android:drawablePadding="12dp"
-        android:hint="dd/mm/yyyy"
+        android:hint="yyyy/mm/dd"
         android:textColorHint="#8A8D99"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -218,6 +218,7 @@
             android:textSize="16sp"
             android:textColor="#808080"/>
         <TextView
+            android:id="@+id/txtViewSignIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Đăng nhập ngay"

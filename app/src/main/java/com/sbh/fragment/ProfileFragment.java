@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.sbh.R;
+import com.sbh.activities.ContrastActivity;
 import com.sbh.activities.LoginActivity;
 
 /**
@@ -28,7 +29,9 @@ public class ProfileFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private Button login;
+    private Button btnLogin;
+    private Button btnAppInfo;
+    private Button btnPrivacyPolicy;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -66,18 +69,39 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
-        login = (Button) view.findViewById(R.id.btnlogin);
-        login.setOnClickListener(new View.OnClickListener() {
+        btnLogin = (Button) view.findViewById(R.id.btnLogin);
+        btnAppInfo = (Button) view.findViewById(R.id.btnAppInfo);
+        btnPrivacyPolicy = (Button) view.findViewById(R.id.btnPrivacyPolicy);
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goToLoginPage();
             }
         });
+        btnAppInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToContrast();
+            }
+        });
+        btnPrivacyPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToContrast();
+            }
+        });
+
         return view;
     }
 
     public void goToLoginPage() {
         Intent intent = new Intent(getActivity(), LoginActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToContrast() {
+        Intent intent = new Intent(getActivity(), ContrastActivity.class);
         startActivity(intent);
     }
 }

@@ -37,6 +37,7 @@
                 android:gravity="center"/>
 
             <EditText
+                android:id="@+id/edtRoomNumber"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:paddingLeft="14dp"
@@ -62,10 +63,11 @@
                 android:gravity="center"/>
 
             <EditText
+                android:id="@+id/edtArea"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:paddingLeft="14dp"
-                android:hint="Nhập diện tích phòng"
+                android:hint="Nhập diện tích phòng (m2)"
                 android:ems="10"
                 android:inputType="number"
                 android:background="@drawable/bg_edittext_sample1"/>
@@ -87,6 +89,7 @@
                 android:gravity="center"/>
 
             <EditText
+                android:id="@+id/edtMaxPeople"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:paddingLeft="14dp"

@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sbh.R;
@@ -23,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextPhone;
     private EditText editTextPassword;
     private Button btnLogin;
+    private TextView txtViewSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +35,23 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = (Button) findViewById(R.id.btnSignIn);
         editTextPhone = (EditText) findViewById(R.id.edPhoneNumber);
         editTextPassword = (EditText) findViewById(R.id.edPassword);
+        txtViewSignUp = (TextView) findViewById(R.id.txtViewSignUp);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                login(editTextPhone.getText().toString().trim(), editTextPassword.getText().toString().trim());
+                if (TextUtils.isEmpty(editTextPhone.getText().toString().trim()) || TextUtils.isEmpty(editTextPassword.getText().toString().trim())) {
+                    Toast.makeText(LoginActivity.this, "All input can not be empty!", Toast.LENGTH_SHORT).show();
+                } else {
+                    login(editTextPhone.getText().toString().trim(), editTextPassword.getText().toString().trim());
+                }
+            }
+        });
+
+        txtViewSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToSignUp();
             }
         });
     }
@@ -76,6 +91,11 @@ public class LoginActivity extends AppCompatActivity {
 
     public void goToOwner() {
         Intent intent = new Intent(this, ManagementActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToSignUp() {
+        Intent intent = new Intent(this, SignupActivity.class);
         startActivity(intent);
     }
 }

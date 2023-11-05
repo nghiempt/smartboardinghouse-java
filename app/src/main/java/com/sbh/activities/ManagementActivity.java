@@ -6,6 +6,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,6 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.PopupWindow;
 
 import com.sbh.R;
 import com.sbh.adapter.RoomHouseAdapter;
@@ -35,6 +42,7 @@ public class ManagementActivity extends AppCompatActivity {
     List<RoomHouse> roomHouseList;
     CardView btnAddNew;
     Intent intentMotelDetailManage;
+    private ConstraintLayout layoutContainer;
 
     ActivityResultLauncher<Intent> mActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
         @Override
@@ -51,6 +59,8 @@ public class ManagementActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_management);
+
+        layoutContainer = (ConstraintLayout) findViewById(R.id.layout_container);
 
         btnAddNew = (CardView) findViewById(R.id.cardViewAddnew);
         crvRoomHouse = findViewById(R.id.rcvDataManageMotel);
@@ -74,6 +84,13 @@ public class ManagementActivity extends AppCompatActivity {
         });
 
         crvRoomHouse.setAdapter(mRoomHouseAdapter);
+
+        btnAddNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createPopUpWindow();
+            }
+        });
 
 //        intentMotelDetailManage = new Intent()
     }
@@ -102,5 +119,50 @@ public class ManagementActivity extends AppCompatActivity {
         bundle.putSerializable("dataTransfer", (Serializable) data);
         intent.putExtras(bundle);
         mActivityResultLauncher.launch(intent);
+    }
+
+    private void addNewHouse() {
+
+    }
+
+    public void createPopUpWindow() {
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View popUpView = inflater.inflate(R.layout.popup_addnew_house, null);
+        int width = ViewGroup.LayoutParams.MATCH_PARENT;
+        int heigh = ViewGroup.LayoutParams.WRAP_CONTENT;
+        boolean focusable = true;
+        PopupWindow popupWindow = new PopupWindow(popUpView, width, heigh, focusable);
+
+        Button btnAddNewHousePopup = (Button) popupWindow.getContentView().findViewById(R.id.btnCancelAddHouse);
+        Button btnCancelAddHousePopup = (Button) popupWindow.getContentView().findViewById(R.id.btnCancelAddHouse);
+
+        btnCancelAddHousePopup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                popupWindow.dismiss();
+            }
+        });
+
+        btnAddNewHousePopup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addNewHouse();
+            }
+        });
+
+        layoutContainer.post(new Runnable() {
+            @Override
+            public void run() {
+                layoutContainer.setAlpha(0.5f);
+                popupWindow.showAtLocation(layoutContainer, Gravity.TOP, 0, 0);
+            }
+        });
+
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                layoutContainer.setAlpha(1f);
+            }
+        });
     }
 }
