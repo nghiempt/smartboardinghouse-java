@@ -20,23 +20,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/notificationCardView"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            app:cardBackgroundColor="#202427"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="4dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true">
-            <ImageView
-                android:id="@+id/notificationIcon"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:src="@drawable/baseline_keyboard_arrow_left_24" />
-        </androidx.cardview.widget.CardView>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -53,7 +36,7 @@
         android:id="@+id/txtViewManageMotel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="8 Nhà trọ đang quản lý"
+        android:text="... Nhà trọ đang quản lý"
         android:textColor="#ffffff"
         android:textSize="16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,23 +53,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewManageMotel"/>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewAddnew"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:cardCornerRadius="30dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="+"
-            android:gravity="center"
-            android:textColor="#ffffff"
-            android:textSize="28dp"
-            android:background="#3D5BF6"/>
 
-    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

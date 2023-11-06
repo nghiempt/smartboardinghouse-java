@@ -48,12 +48,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        txtViewSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goToSignUp();
-            }
-        });
+//        txtViewSignUp.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                goToSignUp();
+//            }
+//        });
     }
 
     private void login(String phoneNumber, String password) {
