@@ -1,6 +1,5 @@
 package com.sbh.api;
 
-import com.sbh.models.Account;
 import com.sbh.models.AccountProfile;
 import com.sbh.models.Room;
 import com.sbh.models.RoomHouse;
