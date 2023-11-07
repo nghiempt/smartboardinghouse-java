@@ -1,31 +1,18 @@
 package com.sbh.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import androidx.appcompat.app.AppCompatActivity;
 import com.sbh.R;
-import com.sbh.api.APIService;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
+
     private EditText editTextPhone;
-    private EditText editTextPassword;
     private Button btnLogin;
-    private TextView txtViewSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,68 +21,34 @@ public class LoginActivity extends AppCompatActivity {
 
         btnLogin = (Button) findViewById(R.id.btnSignIn);
         editTextPhone = (EditText) findViewById(R.id.edPhoneNumber);
-        editTextPassword = (EditText) findViewById(R.id.edPassword);
-        txtViewSignUp = (TextView) findViewById(R.id.txtViewSignUp);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (TextUtils.isEmpty(editTextPhone.getText().toString().trim()) || TextUtils.isEmpty(editTextPassword.getText().toString().trim())) {
-                    Toast.makeText(LoginActivity.this, "All input can not be empty!", Toast.LENGTH_SHORT).show();
+                if (editTextPhone.getText().toString().trim().equals("1")) {
+                    login("1", "");
                 } else {
-                    login(editTextPhone.getText().toString().trim(), editTextPassword.getText().toString().trim());
+                    login("2", "");
                 }
-            }
-        });
-
-        txtViewSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goToSignUp();
             }
         });
     }
 
     private void login(String phoneNumber, String password) {
-        goToOwner();
-//        boolean result = false;
-//        Map<String, String> map = new HashMap<>();
-//        map.put("username", phoneNumber);
-//        map.put("password", password);
-//        APIService.apiService.login(map).enqueue(new Callback<Map<String, Object>>() {
-//            @Override
-//            public void onResponse(Call<Map<String, Object>> call, Response<Map<String, Object>> response) {
-//                if (response != null) {
-//                    Map<String, Object> map = response.body();
-//                    if (map == null) {
-//                        Toast.makeText(LoginActivity.this, "Loss internet", Toast.LENGTH_SHORT).show();
-//                    }
-//                    if ((Boolean) map.get("result") == true) {
-//                        Toast.makeText(LoginActivity.this, "Successfully", Toast.LENGTH_SHORT).show();
-//                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                        startActivity(intent);
-//                    } else {
-//                        Toast.makeText(LoginActivity.this, "Wrong password", Toast.LENGTH_SHORT).show();
-//                    }
-//                } else {
-//                    Toast.makeText(LoginActivity.this, "Loss internet", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<Map<String, Object>> call, Throwable t) {
-//                Toast.makeText(LoginActivity.this, "Loss internet!", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        if (Objects.equals(phoneNumber, "1")) {
+            goToOwner();
+        } else {
+            goToMember();
+        }
     }
 
     public void goToOwner() {
-        Intent intent = new Intent(this, ManagementActivity.class);
+        Intent intent = new Intent(this, ChooseHouseActivity.class);
         startActivity(intent);
     }
 
-    public void goToSignUp() {
-        Intent intent = new Intent(this, SignupActivity.class);
+    public void goToMember() {
+        Intent intent = new Intent(this, MapActivity.class);
         startActivity(intent);
     }
 }
