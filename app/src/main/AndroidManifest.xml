@@ -17,6 +17,10 @@
         android:theme="@style/Theme.Sbh"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.SearchActivity"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBZeZTmHaUQ21zn_rAKPlV5ImPijEE-ZVY" />

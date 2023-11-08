@@ -1,8 +1,10 @@
 package com.sbh.activities;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TransactionHistoryActivity extends AppCompatActivity {
+
+    CardView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,13 @@ public class TransactionHistoryActivity extends AppCompatActivity {
         data = getData();
         adapter = new TransactionHistoryAdapter(data);
         recyclerView.setAdapter(adapter);
+        back= findViewById(R.id.btnBackToManagement);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     private List<String> getData() {

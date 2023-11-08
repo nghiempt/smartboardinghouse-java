@@ -3,6 +3,7 @@ package com.sbh.api;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.sbh.models.Account;
+import com.sbh.models.Room;
 
 import java.util.List;
 import java.util.Map;
@@ -31,5 +32,8 @@ public interface APIService {
 
     @POST("login")
     Call<Map<String, Object>> login(@Body Map<String, String> map);
+
+    @GET("Room")
+    Call<List<Room>> getAllRoom();
 
 }

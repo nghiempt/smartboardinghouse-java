@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void goToMember() {
-        Intent intent = new Intent(this, MapActivity.class);
+        Intent intent = new Intent(this, ListRoomActivity.class);
         startActivity(intent);
     }
 }
