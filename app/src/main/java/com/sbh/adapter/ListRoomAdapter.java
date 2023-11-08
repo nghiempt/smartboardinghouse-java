@@ -1,5 +1,6 @@
 package com.sbh.adapter;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,15 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sbh.R;
+import com.sbh.models.House;
+import com.sbh.models.Room;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class ListRoomAdapter extends RecyclerView.Adapter<ListRoomAdapter.ViewHolder> {
 
-    private final List<String> txtRoomNumber;
+    private final List<Room> listRoom;
 
-    public ListRoomAdapter(List<String> data) {
-        this.txtRoomNumber = data;
+    public ListRoomAdapter(List<Room> data) {
+        this.listRoom = data;
     }
 
     @Override
@@ -27,15 +31,16 @@ public class ListRoomAdapter extends RecyclerView.Adapter<ListRoomAdapter.ViewHo
         return new ViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String name = txtRoomNumber.get(position);
-        holder.txtRoomNumber.setText(name);
+        final Room room = listRoom.get(position);
+        holder.txtRoomNumber.setText(room.getRoomNumber() + "");
     }
 
     @Override
     public int getItemCount() {
-        return txtRoomNumber.size();
+        return listRoom.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

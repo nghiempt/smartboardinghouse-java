@@ -1,14 +1,18 @@
 package com.sbh.activities;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.sbh.R;
 import com.squareup.picasso.Picasso;
 
 public class TransactionActivity extends AppCompatActivity {
+
+    CardView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,5 +26,13 @@ public class TransactionActivity extends AppCompatActivity {
         Picasso.get()
                 .load(imageUrl)
                 .into(imageView);
+        back = findViewById(R.id.btnBackToManagement);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
+
 }

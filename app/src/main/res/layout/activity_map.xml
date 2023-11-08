@@ -11,7 +11,7 @@
         android:id="@+id/layout_title_detail_manage"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:gravity="center_vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,8 +27,8 @@
 
             <ImageView
                 android:id="@+id/notificationIcon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:contentDescription="desc"
                 android:src="@drawable/baseline_keyboard_arrow_left_24" />
@@ -51,7 +51,7 @@
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_title_detail_manage"

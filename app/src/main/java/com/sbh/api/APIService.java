@@ -2,7 +2,9 @@ package com.sbh.api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.sbh.models.Account;
+import com.sbh.response.ListHouseResponse;
+import com.sbh.response.ListRoomResponse;
+import com.sbh.response.ResponseObject;
 
 import java.util.List;
 import java.util.Map;
@@ -21,15 +23,39 @@ public interface APIService {
             .create();
 
     APIService apiService = new Retrofit.Builder()
-            .baseUrl("https://b534-115-75-181-133.ngrok-free.app/api/v1/")
+            .baseUrl("http://smartboardinghouse.me:82/api/v1/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(APIService.class);
 
-    @GET("users")
-    Call<List<Account>> getAllAccount();
+    @POST("sign_in")
+    Call<ResponseObject> _signIn(@Body Map<String, String> map);
 
-    @POST("login")
-    Call<Map<String, Object>> login(@Body Map<String, String> map);
+    @GET("house/?account_ID=9")
+    Call<ListHouseResponse> _getHouseByAccountID();
+
+    @GET("room/?house_ID=1")
+    Call<ListRoomResponse> _getRoomByHouseID();
+
+    @GET("room/filter?house_id=1")
+    Call<ListHouseResponse> _getRoomByID();
+
+    @GET("room/filter?house_id=1")
+    Call<ListHouseResponse> _createRoomEmpty();
+
+    @GET("room/filter?house_id=1")
+    Call<ListHouseResponse> _createRoomInfo();
+
+    @GET("room/filter?house_id=1")
+    Call<ListHouseResponse> _createTransaction();
+
+    @GET("room/filter?house_id=1")
+    Call<ListHouseResponse> _getContractByRoomID();
+
+    @GET("room/filter?house_id=1")
+    Call<ListHouseResponse> _getTransactionByID();
+
+    @GET("room/filter?house_id=1")
+    Call<ListHouseResponse> _getTransactionByAccountID();
 
 }
