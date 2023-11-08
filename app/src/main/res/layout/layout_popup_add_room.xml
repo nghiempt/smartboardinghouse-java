@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:background="@drawable/bg_white"
+    android:padding="30dp"
+    android:orientation="vertical">
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_gravity="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@drawable/baseline_indeterminate_check_box_24"
+         />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="5dp"
+        android:text="Giá tiền hàng tháng" />
+
+    <EditText
+        android:id="@+id/edtGiaTien"
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:ems="10"
+        android:inputType="text"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_edt_no_underline" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="5dp"
+        android:text="Số người tối đa" />
+
+    <EditText
+        android:id="@+id/edtSoNguoi"
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:ems="10"
+        android:inputType="text"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/bg_edt_no_underline"
+         />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnTaoPhong"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_btn_create_room"
+        android:text="Tạo phòng" />
+</LinearLayout>

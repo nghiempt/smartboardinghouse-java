@@ -1,10 +1,19 @@
 package com.sbh.activities;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -23,7 +32,8 @@ import retrofit2.Call;
 
 public class ListRoomActivity extends AppCompatActivity {
 
-    CardView back;
+    CardView back, addRoom;
+    FrameLayout overlayLayout;
     ImageView map;
 
     @Override
@@ -46,6 +56,7 @@ public class ListRoomActivity extends AppCompatActivity {
             public void onItemClick(View view, int position) {
                 // Xử lý sự kiện click ở đây
                 goToRoomDetail();
+//                goToRoomEmpty();
             }
 
             @Override
@@ -54,6 +65,15 @@ public class ListRoomActivity extends AppCompatActivity {
             }
         }));
         back = findViewById(R.id.btnBackToManagement);
+        addRoom = findViewById(R.id.btnAddRoom);
+        overlayLayout = findViewById(R.id.lo_toimau);
+        addRoom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openAddRoom(Gravity.CENTER);
+                overlayLayout.setVisibility(View.VISIBLE);
+            }
+        });
         map= findViewById(R.id.imageView);
         map.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,22 +90,56 @@ public class ListRoomActivity extends AppCompatActivity {
     }
 
     private List<String> getData() {
-        Call<List<Room>> rooms = APIService.apiService.getAllRoom();
         List<String> data = new ArrayList<>();
 
 
-//        data.add("1");
-//        data.add("2");
-//        data.add("3");
-//        data.add("4");
-//        data.add("5");
-//        data.add("6");
-//        data.add("7");
-//        data.add("8");
-//        data.add("9");
-//        data.add("10");
+        data.add("1");
+        data.add("2");
+        data.add("3");
+        data.add("4");
+        data.add("5");
+        data.add("6");
+
         return data;
     }
+
+    private void openAddRoom(int gravity){
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.layout_popup_add_room);
+
+        Window window = dialog.getWindow();
+        if (window == null){
+            return;
+        }
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        WindowManager.LayoutParams windowAttributes = window.getAttributes();
+        windowAttributes.gravity = gravity;
+        window.setAttributes(windowAttributes);
+
+        if (Gravity.BOTTOM == gravity){
+            dialog.setCancelable(true);
+        }else {
+            dialog.setCancelable(false);
+        }
+        EditText edtGiaTien = dialog.findViewById(R.id.edtGiaTien);
+        EditText edtSoNguoi = dialog.findViewById(R.id.edtSoNguoi);
+        Button btnTaoPhong = dialog.findViewById(R.id.btnTaoPhong);
+        btnTaoPhong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(ListRoomActivity.this,"Thanh cong", Toast.LENGTH_LONG).show();
+                getData().add("7");
+                overlayLayout.setVisibility(View.GONE);
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+
+
 
 
     public void goToRoomDetail() {
@@ -94,6 +148,10 @@ public class ListRoomActivity extends AppCompatActivity {
     }
     public void goToMap() {
         Intent intent = new Intent(this, MapActivity.class);
+        startActivity(intent);
+    }
+    public void goToRoomEmpty() {
+        Intent intent = new Intent(this, RoomEmptyActivity.class);
         startActivity(intent);
     }
 

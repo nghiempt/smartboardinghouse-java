@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:background="@drawable/bg_white"
+    android:padding="30dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="10dp"
+        android:text="Tháng" />
+
+    <EditText
+        android:id="@+id/edtThang"
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_edt_no_underline"
+        android:ems="10"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="5dp"
+        android:text="Điện (ký)" />
+
+    <EditText
+        android:id="@+id/edtDien"
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:ems="10"
+        android:inputType="text"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_edt_no_underline" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="5dp"
+        android:text="Nước (khối)" />
+
+    <EditText
+        android:id="@+id/edtNuoc"
+        android:layout_width="match_parent"
+        android:layout_height="30sp"
+        android:ems="10"
+        android:inputType="text"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/bg_edt_no_underline"
+         />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnThongbao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_btn_create_room"
+        android:text="Thông báo" />
+</LinearLayout>
