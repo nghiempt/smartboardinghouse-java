@@ -5,6 +5,8 @@ import com.google.gson.GsonBuilder;
 import com.sbh.response.ListHouseResponse;
 import com.sbh.response.ListRoomResponse;
 import com.sbh.response.ResponseObject;
+import com.sbh.models.Account;
+import com.sbh.models.Room;
 
 import java.util.List;
 import java.util.Map;
@@ -57,5 +59,11 @@ public interface APIService {
 
     @GET("room/filter?house_id=1")
     Call<ListHouseResponse> _getTransactionByAccountID();
+
+    @GET("Room")
+    Call<List<Room>> getAllRoom();
+
+    @GET("Room")
+    Call<List<Room>> getAllRoom();
 
 }

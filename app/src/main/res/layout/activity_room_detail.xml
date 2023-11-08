@@ -58,6 +58,23 @@
                 android:src="@drawable/ic_baseline_article_24" />
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnBill"
+            android:layout_marginRight="40dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/bill"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:contentDescription="desc"
+                android:src="@drawable/baseline_attach_money_24" />
+        </androidx.cardview.widget.CardView>
+
     </RelativeLayout>
 
     <TextView
@@ -100,5 +117,14 @@
         android:layout_marginTop="450dp"
         android:backgroundTint="#292E32"
         android:text="Chuyển về phòng trống" />
+    <FrameLayout
+        android:id="@+id/lo_toimau"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill"
+        android:background="#80000000"
+        android:visibility="gone">
+        <!-- Các thành phần còn lại sẽ nằm ở đây -->
+    </FrameLayout>
 
 </LinearLayout>

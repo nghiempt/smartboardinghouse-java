@@ -1,7 +1,9 @@
 package com.sbh.activities;
 
 import android.content.Intent;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -73,6 +75,13 @@ public class ChooseHouseActivity extends AppCompatActivity {
             }
         });
     }
+
+
+    public void goToListRoom() {
+        Intent intent = new Intent(this, ListRoomActivity.class);
+        startActivity(intent);
+    }
+
 
 
     public void goToListRoom() {

@@ -17,6 +17,16 @@
         android:theme="@style/Theme.Sbh"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.ThanhToanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.RoomEmptyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LoginActivity"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBZeZTmHaUQ21zn_rAKPlV5ImPijEE-ZVY" />
@@ -60,7 +70,7 @@
             android:name=".activities.ChooseHouseActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.LoginActivity"
+            android:name=".activities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
